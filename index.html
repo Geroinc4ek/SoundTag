@@ -1,63 +1,52 @@
-<!DOCTYPE html>  
-<html lang="ru">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Музыка по кнопке</title>  
-    <style>  
-        body {  
-            background: #121212;  
-            font-family: 'Arial', sans-serif;  
-            color: white;  
-            display: flex;  
-            justify-content: center;  
-            align-items: center;  
-            height: 100vh;  
-            margin: 0;  
-            text-align: center;  
-        }  
-        h1 {  
-            font-size: 32px;  
-            margin-bottom: 20px;  
-            color: #ff4081;  
-        }  
-        #play-btn {  
-            background: #ff4081;  
-            border: none;  
-            border-radius: 15px;  
-            padding: 15px 30px;  
-            font-size: 20px;  
-            color: white;  
-            cursor: pointer;  
-            transition: background 0.3s ease;  
-        }  
-        #play-btn:hover {  
-            background: #ff1a5e;  
-        }  
-        #music-frame {  
-            display: none; /* Плеер скрыт по умолчанию */  
-        }  
-    </style>  
-</head>  
-<body>  
-    <div>  
-        <h1>Давай еблан</h1>  
-        <button id="play-btn">Хуйни по мне разок</button>  
-    </div>  
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кнопка с музыкой</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a; 
+        }
+        .big-button {
+            width: 400px; 
+            height: 400px; 
+            background-color: #ff4444; 
+            color: #ffffff; 
+            font-size: 64px; 
+            font-family: Arial, sans-serif;
+            border: none;
+            border-radius: 30px; 
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .big-button:hover {
+            transform: scale(1.05);
+            background-color: #ff6666; 
+        }
+        .big-button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <button class="big-button" onclick="playMusic()">ЖМИ</button>
+    
+    <!-- Аудио элемент -->
+    <audio id="myAudio">
+        <source src="your_music.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Встроенная музыка с YouTube -->  
-    <iframe id="music-frame" width="0" height="0" src="https://www.youtube.com/embed/1iZwR2z1d7M?autoplay=1&mute=0" allow="autoplay"></iframe>  
-
-    <script>  
-        // Обработчик нажатия на кнопку  
-        const playBtn = document.getElementById('play-btn');  
-        const musicFrame = document.getElementById('music-frame');  
-
-        playBtn.addEventListener('click', () => {  
-            musicFrame.style.display = 'block'; // Показываем плеер  
-            musicFrame.src += "&enablejsapi=1"; // Включаем звук  
-            playBtn.textContent = "Ебать ты лох"; // Меняем текст кнопки  
-        });  
-    </script>  
-</body>  
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+    </script>
+</body>
 </html>
